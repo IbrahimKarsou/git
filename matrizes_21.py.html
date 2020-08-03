@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>matrizes_21.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+matrizes_21.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">numpy</span>
+
+<span class="s1">matriz_1 = numpy.zeros(shape=(</span><span class="s2">2</span><span class="s0">, </span><span class="s2">2</span><span class="s1">))</span>
+<span class="s1">matriz_2 = numpy.zeros(shape=(</span><span class="s2">2</span><span class="s0">, </span><span class="s2">2</span><span class="s1">))</span>
+<span class="s1">continuar = </span><span class="s3">'sim'</span>
+
+
+<span class="s0">def </span><span class="s1">somar(u</span><span class="s0">, </span><span class="s1">v):</span>
+    <span class="s1">matriz_somada = numpy.zeros(shape=(</span><span class="s2">2</span><span class="s0">, </span><span class="s2">2</span><span class="s1">))</span>
+    <span class="s0">for </span><span class="s1">p </span><span class="s0">in </span><span class="s1">range(len(v)):</span>
+        <span class="s0">for </span><span class="s1">c </span><span class="s0">in </span><span class="s1">range(len(u[</span><span class="s2">0</span><span class="s1">])):</span>
+            <span class="s1">matriz_somada[p][c] = u[p][c] + v[p][c]</span>
+    <span class="s0">return </span><span class="s1">matriz_somada</span>
+
+
+<span class="s0">def </span><span class="s1">subtrair(u</span><span class="s0">, </span><span class="s1">v):</span>
+    <span class="s1">matriz_subtraida = numpy.zeros(shape=(</span><span class="s2">2</span><span class="s0">, </span><span class="s2">2</span><span class="s1">))</span>
+    <span class="s0">for </span><span class="s1">t </span><span class="s0">in </span><span class="s1">range(len(matriz_subtraida)):</span>
+        <span class="s0">for </span><span class="s1">k </span><span class="s0">in </span><span class="s1">range(len(matriz_subtraida[</span><span class="s2">0</span><span class="s1">])):</span>
+            <span class="s1">matriz_subtraida[t][k] = u[t][k] - v[t][k]</span>
+    <span class="s0">return </span><span class="s1">matriz_subtraida</span>
+
+
+<span class="s0">def </span><span class="s1">multiplicar(u</span><span class="s0">, </span><span class="s1">v):</span>
+    <span class="s1">matriz_multiplicada = numpy.matmul(u</span><span class="s0">, </span><span class="s1">v)</span>
+    <span class="s0">return </span><span class="s1">matriz_multiplicada</span>
+
+
+<span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(len(matriz_1)):  </span><span class="s4"># ler a matriz 1</span>
+    <span class="s0">for </span><span class="s1">j </span><span class="s0">in </span><span class="s1">range(len(matriz_1[</span><span class="s2">0</span><span class="s1">])):</span>
+        <span class="s1">print(</span><span class="s3">'digite um numero para a matriz 1'</span><span class="s1">)</span>
+        <span class="s1">matriz_1[i][j] = float(input())</span>
+
+<span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(len(matriz_2)):  </span><span class="s4"># ler a matriz 2</span>
+    <span class="s0">for </span><span class="s1">j </span><span class="s0">in </span><span class="s1">range(len(matriz_2[</span><span class="s2">0</span><span class="s1">])):</span>
+        <span class="s1">print(</span><span class="s3">'digite um numero para a matriz 2'</span><span class="s1">)</span>
+        <span class="s1">matriz_2[i][j] = float(input())</span>
+
+
+<span class="s0">while </span><span class="s1">continuar == </span><span class="s3">'sim'</span><span class="s1">:</span>
+    <span class="s1">print(</span><span class="s3">'qual operaçao você deseja fazer? (somar, subtrair, multiplicar)'</span><span class="s1">)</span>
+    <span class="s1">resposta_usuario = input()</span>
+
+    <span class="s0">if </span><span class="s1">resposta_usuario == </span><span class="s3">'somar'</span><span class="s1">:</span>
+        <span class="s1">somando = somar(matriz_1</span><span class="s0">, </span><span class="s1">matriz_2)</span>
+        <span class="s1">print(somando)</span>
+    <span class="s0">elif </span><span class="s1">resposta_usuario == </span><span class="s3">'subtrair'</span><span class="s1">:</span>
+        <span class="s1">subtraindo = subtrair(matriz_1</span><span class="s0">, </span><span class="s1">matriz_2)</span>
+        <span class="s1">print(subtraindo)</span>
+    <span class="s0">elif </span><span class="s1">resposta_usuario == </span><span class="s3">'multiplicar'</span><span class="s1">:</span>
+        <span class="s1">multiplicando = multiplicar(matriz_1</span><span class="s0">, </span><span class="s1">matriz_2)</span>
+        <span class="s1">print(multiplicando)</span>
+
+    <span class="s1">print(</span><span class="s3">'deseja continuar?'</span><span class="s1">)</span>
+    <span class="s1">continuar = input()</span>
+
+    <span class="s0">if </span><span class="s1">continuar == </span><span class="s3">'nao'</span><span class="s1">:</span>
+        <span class="s0">break</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s1">continuar = </span><span class="s3">'sim'</span>
+</pre>
+</body>
+</html>
